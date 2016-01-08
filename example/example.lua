@@ -2,9 +2,8 @@ htmlEntities = require('htmlEntities')
 function test_module()
     print('init_test')
 	local test = [[
-	test, dsd s, &cong; &dcong;
-	dsda
-	dda
+	&amp;xample text
+	&it;&equiv;&equiv;&equiv;&equiv;&equiv;&equiv;&equiv;&equiv;&equiv;&equiv;&gt;
 	]]
 	local dec = htmlEntities.decode(test)
 	print('Results:') -- Result
