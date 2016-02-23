@@ -4,6 +4,7 @@ local register_global_module_htmlEntities = false
 local global_module_name_htmlEntities = 'htmlEntities'
 
 --[==[
+The MIT License (MIT)
 Copyright (c) 2016 Tiago Danin
 
  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -24,14 +25,12 @@ Copyright (c) 2016 Tiago Danin
  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  THE SOFTWARE.
 
- * Except as contained in this notice, the name(s) of the above copyright holders shall 
- * not be used in advertising or otherwise to promote the sale, use or other dealings in 
 ]==]--
 
 local htmlEntities = {
-	version = "htmlEntities 0.1",
+	version = "htmlEntities 0.2",
 	name = "htmlEntities",
-	author = "Tiago Danin - 2015"
+	author = "Tiago Danin - 2016"
 }
 
 if register_global_module_htmlEntities then
@@ -268,30 +267,42 @@ local htmlEntities_table = {
 	['&clubs;'] = '♣',
 	['&hearts;'] = '♥',
 	['&diams;'] = '♦',
-	['&#32;'] = ' ',
-	['&#33;'] = '!',
-	['&#34;'] = '"',
-	['&#35;'] = '#',
-	['&#36;'] = '$',
-	['&#37;'] = '%',
-	['&#38;'] = '&',
-	['&#39;'] = "'",
-	['&#40;'] = '(',
-	['&#41;'] = ')',
-	['&#42;'] = '*',
-	['&#43;'] = '+',
-	['&#44;'] = ',',
-	['&#45;'] = '-',
-	['&#46;'] = '.',
-	['&#47;'] = '/'
+	['&#338;'] = 'Œ',
+	['&#339;'] = 'œ',
+	['&#352;'] = 'Š',
+	['&#353;'] = 'š',
+	['&#376;'] = 'Ÿ',
+	['&#402;'] = 'ƒ',
+	['&#8211;'] = '–',
+	['&#8212;'] = '—',
+	['&#8216;'] = '‘',
+	['&#8217;'] = '’',
+	['&#8218;'] = '‚',
+	['&#8220;'] = '“',
+	['&#8221;'] = '”',
+	['&#8222;'] = '„',
+	['&#8224;'] = '†',
+	['&#8225;'] = '‡',
+	['&#8226;'] = '•',
+	['&#8230;'] = '…',
+	['&#8240;'] = '‰',
+	['&#8364;'] = '€',
+	['&#8482;'] = '™'
 }
 
-function htmlEntities.decode (text)
-	local d = string.gsub(text, "&.-;", htmlEntities_table)
+function ASCII_dec (input)
+	local output = input:char()
+	return output
+end
+
+function htmlEntities.decode (input)
+	local output = string.gsub(input, '&.-;', htmlEntities_table)
+	output = string.gsub(output, '&#(.-);', ASCII_dec)
+
 	if debug_htmlEntities then
-		print('>>'..d)
+		print('>>'..output)
 	end
-	return d
+	return output
 end
 
 return htmlEntities
