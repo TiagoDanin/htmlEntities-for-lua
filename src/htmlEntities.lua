@@ -267,6 +267,7 @@ local htmlEntities_table = {
 	['&clubs;'] = '♣',
 	['&hearts;'] = '♥',
 	['&diams;'] = '♦',
+	['&#160;'] = ' ',
 	['&#338;'] = 'Œ',
 	['&#339;'] = 'œ',
 	['&#352;'] = 'Š',
@@ -302,7 +303,7 @@ end
 function htmlEntities.decode (input)
 	if not input then print('htmlEntities >> ERRO: input is value nil') end
 	local output = string.gsub(input, '&.-;', htmlEntities_table)
-	output = string.gsub(output, '&#(.-);', ASCII_dec)
+	output = string.gsub(output, '&#([1234567890]*);', ASCII_dec)
 
 	if debug_htmlEntities then print('>>'..output) end
 	return output
