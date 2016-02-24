@@ -291,17 +291,20 @@ local htmlEntities_table = {
 }
 
 function ASCII_dec (input)
-	local output = input:char()
-	return output
+	if math.abs(input) < 256 then
+		local output = input:char()
+		return output
+	else
+		return input
+	end
 end
 
 function htmlEntities.decode (input)
+	if not input then print('htmlEntities >> ERRO: input is value nil') end
 	local output = string.gsub(input, '&.-;', htmlEntities_table)
 	output = string.gsub(output, '&#(.-);', ASCII_dec)
 
-	if debug_htmlEntities then
-		print('>>'..output)
-	end
+	if debug_htmlEntities then print('>>'..output) end
 	return output
 end
 
