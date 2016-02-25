@@ -1,5 +1,6 @@
 -- Module options:
 local debug_htmlEntities = false
+local ASCII_htmlEntities = true
 local register_global_module_htmlEntities = false
 local global_module_name_htmlEntities = 'htmlEntities'
 
@@ -267,6 +268,22 @@ local htmlEntities_table = {
 	['&clubs;'] = '♣',
 	['&hearts;'] = '♥',
 	['&diams;'] = '♦',
+	['&#32;'] = ' ',
+	['&#33;'] = '!',
+	['&#34;'] = '"',
+	['&#35;'] = '#',
+	['&#36;'] = '$',
+	['&#37;'] = '%',
+	['&#38;'] = '&',
+	['&#39;'] = "'",
+	['&#40;'] = '(',
+	['&#41;'] = ')',
+	['&#42;'] = '*',
+	['&#43;'] = '+',
+	['&#44;'] = ',',
+	['&#45;'] = '-',
+	['&#46;'] = '.',
+	['&#47;'] = '/',
 	['&#160;'] = ' ',
 	['&#338;'] = 'Œ',
 	['&#339;'] = 'œ',
@@ -291,7 +308,7 @@ local htmlEntities_table = {
 	['&#8482;'] = '™'
 }
 
-function ASCII_dec (input)
+function htmlEntities.ASCII_dec (input)
 	if math.abs(input) < 256 then
 		local output = input:char()
 		return output
@@ -303,7 +320,9 @@ end
 function htmlEntities.decode (input)
 	if not input then print('htmlEntities >> ERRO: input is value nil') end
 	local output = string.gsub(input, '&.-;', htmlEntities_table)
-	output = string.gsub(output, '&#([1234567890]*);', ASCII_dec)
+	if ASCII_htmlEntities then
+		output = string.gsub(output, '&#([1234567890]*);', htmlEntities.ASCII_dec)
+	end
 
 	if debug_htmlEntities then print('>>'..output) end
 	return output
