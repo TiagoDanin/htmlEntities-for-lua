@@ -1,6 +1,7 @@
 -- Module options:
 local debug_htmlEntities = false
 local ASCII_htmlEntities = true
+local utf8_htmlEntities = true
 local register_global_module_htmlEntities = false
 local global_module_name_htmlEntities = 'htmlEntities'
 
@@ -29,9 +30,11 @@ Copyright (c) 2016 Tiago Danin
 ]==]--
 
 local htmlEntities = {
-	version = "htmlEntities 0.2",
-	name = "htmlEntities",
-	author = "Tiago Danin - 2016"
+	version = '0.3',
+	name = 'htmlEntities-for-lua',
+	author = 'Tiago Danin - 2016',
+	license = 'The MIT License (MIT)',
+	page = 'github.com/TiagoDanin/htmlEntities-for-lua'
 }
 
 if register_global_module_htmlEntities then
@@ -309,22 +312,40 @@ local htmlEntities_table = {
 }
 
 function htmlEntities.ASCII_dec (input)
+	if not input then print('htmlEntities >> ERRO: input is value nil') return end
 	if math.abs(input) < 256 then
-		local output = input:char()
-		return output
+		if _VERSION == 'Lua 5.3' then
+			return utf8.char(input)
+		else
+			local output = string.char(input)
+			if utf8_htmlEntities and not output:match('([%z\1-\127\194-\244][\128-\191]*)')then
+				return input
+			end
+			return output
+		end
 	else
 		return input
 	end
 end
 
 function htmlEntities.decode (input)
-	if not input then print('htmlEntities >> ERRO: input is value nil') end
+	if not input then print('htmlEntities >> ERRO: input is value nil') return end
 	local output = string.gsub(input, '&.-;', htmlEntities_table)
 	if ASCII_htmlEntities then
 		output = string.gsub(output, '&#([1234567890]*);', htmlEntities.ASCII_dec)
 	end
 
 	if debug_htmlEntities then print('>>'..output) end
+	return output
+end
+
+function htmlEntities.encode (input)
+	if not input then print('htmlEntities >> ERRO: input is value nil') return end
+	input = htmlEntities.decode(input)
+	local output = ''
+	for k = 1, string.len(input) do
+		output = output .. '&#'.. string.sub(input,k,k):byte() ..';'
+	end
 	return output
 end
 

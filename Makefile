@@ -8,44 +8,82 @@ LUA = /5.2
 BETA = /5.3
 
 LUA_DIR = $(PREFIX)
-LUA_SHAREDIR = $(LUA_DIR)/share/lua
 LUA_LIBDIR = $(LUA_DIR)/lib/lua
+LUA_SHAREDIR = $(LUA_DIR)/share/lua
 
-install: 5.2
-	
-5.1:
-	@echo 'Libs for Lua5.1'
-	@echo 'Requirement permission "root" to create directory in the system'
+msg_install = 'Requires permission of "root" to create the system directory'
+msg_unistall = 'Requires permission of "root" to remove the system directory'
+msg_end = "Files can be located in:'\n '$(LUA_LIBDIR)/*Version' and '$(LUA_SHAREDIR)/*Version'\nTo remove use '$ make unistall'"
+
+install: all
+unistall: all
+
+
+installall: all
+all:
+	@echo 'Module for Lua'
+	@echo $(msg_install)
 	@sudo mkdir -p $(LUA_LIBDIR)$(LAST)
+	@sudo cp -f $(SOURCES) $(LUA_LIBDIR)$(LAST)
+	@sudo mkdir -p $(LUA_LIBDIR)$(LUA)
+	@sudo cp -f $(SOURCES) $(LUA_LIBDIR)$(LUA)
+	@sudo mkdir -p $(LUA_LIBDIR)$(BETA)
+	@sudo cp -f $(SOURCES) $(LUA_LIBDIR)$(BETA)
 	@sudo mkdir -p $(LUA_SHAREDIR)$(LAST)
-	@cp -f $(SOURCES) $(LUA_LIBDIR)$(LAST)
-	@cp -f $(SOURCES) $(LUA_SHAREDIR)$(LAST)
-	@echo 'Files can be located in:'
-	@echo "'$(LUA_LIBDIR)' and '@(LUA_SHAREDIR)'"
-	@echo "To remove use '$ make unistall'"
+	@sudo cp -f $(SOURCES) $(LUA_SHAREDIR)$(LAST)
+	@sudo mkdir -p $(LUA_SHAREDIR)$(LUA)
+	@sudo cp -f $(SOURCES) $(LUA_SHAREDIR)$(LUA)
+	@sudo mkdir -p $(LUA_SHAREDIR)$(BETA)
+	@sudo cp -f $(SOURCES) $(LUA_SHAREDIR)$(BETA)
+	@echo $(msg_end)
+
+5.1:
+	@echo 'Module for Lua5.1'
+	@echo $(msg_install)
+	@sudo mkdir -p $(LUA_LIBDIR)$(LAST)
+	@sudo cp -f $(SOURCES) $(LUA_LIBDIR)$(LAST)
+	@sudo mkdir -p $(LUA_SHAREDIR)$(LAST)
+	@sudo cp -f $(SOURCES) $(LUA_SHAREDIR)$(LAST)
+	@echo $(msg_end)
 
 5.2:
-	@echo 'Libs for Lua5.2'
-	@echo 'Requirement permission "root" to create directory in the system'
+	@echo 'Module for Lua5.2'
+	@echo $(msg_install)
 	@sudo mkdir -p $(LUA_LIBDIR)$(LUA)
+	@sudo cp -f $(SOURCES) $(LUA_LIBDIR)$(LUA)
 	@sudo mkdir -p $(LUA_SHAREDIR)$(LUA)
-	@cp -f $(SOURCES) $(LUA_LIBDIR)$(LUA)
-	@cp -f $(SOURCES) $(LUA_SHAREDIR)$(LUA)
-	@echo 'Files can be located in:'
-	@echo "'$(LUA_LIBDIR)' and '@(LUA_SHAREDIR)'"
-	@echo "To remove use '$ make unistall'"
+	@sudo cp -f $(SOURCES) $(LUA_SHAREDIR)$(LUA)
+	@echo $(msg_end)
 
 5.3:
-	@echo 'Libs for Lua5.3'
-	@echo 'Requirement permission "root" to create directory in the system'
+	@echo 'Module for Lua5.3'
+	@echo $(msg_install)
 	@sudo mkdir -p $(LUA_LIBDIR)$(BETA)
+	@sudo cp -f $(SOURCES) $(LUA_LIBDIR)$(BETA)
 	@sudo mkdir -p $(LUA_SHAREDIR)$(BETA)
-	@cp -f $(SOURCES) $(LUA_LIBDIR)$(BETA)
-	@cp -f $(SOURCES) $(LUA_SHAREDIR)$(BETA)
-	@echo 'Files can be located in:'
-	@echo "'$(LUA_LIBDIR)' and '@(LUA_SHAREDIR)'"
-	@echo "To remove use '$ make unistall'"
+	@sudo cp -f $(SOURCES) $(LUA_SHAREDIR)$(BETA)
+	@echo $(msg_end)
 
-unistall:
+unistall5.1:
+	@echo $(msg_install)
+	@sudo rm -f $(LUA_LIBDIR)$(LAST)/htmlEntities.lua
+	@sudo rm -f $(LUA_LIBDIR)$(LAST)/htmlEntities.lua
+
+unistall5.2:
+	@echo $(msg_install)
 	@sudo rm -f $(LUA_LIBDIR)$(LUA)/htmlEntities.lua
 	@sudo rm -f $(LUA_SHAREDIR)$(LUA)/htmlEntities.lua
+
+unistall5.3:
+	@echo $(msg_install)
+	@sudo rm -f $(LUA_LIBDIR)$(BETA)/htmlEntities.lua
+	@sudo rm -f $(LUA_SHAREDIR)$(BETA)/htmlEntities.lua
+
+unistallall:
+	@echo $(msg_install)
+	@sudo rm -f $(LUA_LIBDIR)$(LAST)/htmlEntities.lua
+	@sudo rm -f $(LUA_LIBDIR)$(LUA)/htmlEntities.lua
+	@sudo rm -f $(LUA_LIBDIR)$(BETA)/htmlEntities.lua
+	@sudo rm -f $(LUA_SHAREDIR)$(LAST)/htmlEntities.lua
+	@sudo rm -f $(LUA_SHAREDIR)$(LUA)/htmlEntities.lua
+	@sudo rm -f $(LUA_SHAREDIR)$(BETA)/htmlEntities.lua
