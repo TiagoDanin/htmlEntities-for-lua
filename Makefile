@@ -16,7 +16,7 @@ msg_unistall = 'Requires permission of "root" to remove the system directory'
 msg_end = "Files can be located in:'\n '$(LUA_LIBDIR)/*Version' and '$(LUA_SHAREDIR)/*Version'\nTo remove use '$ make unistall'"
 
 install: all
-unistall: all
+unistall: unistallall
 
 
 installall: all
@@ -70,17 +70,17 @@ unistall5.1:
 	@sudo rm -f $(LUA_LIBDIR)$(LAST)/htmlEntities.lua
 
 unistall5.2:
-	@echo $(msg_install)
+	@echo $(msg_unistall)
 	@sudo rm -f $(LUA_LIBDIR)$(LUA)/htmlEntities.lua
 	@sudo rm -f $(LUA_SHAREDIR)$(LUA)/htmlEntities.lua
 
 unistall5.3:
-	@echo $(msg_install)
+	@echo $(msg_unistall)
 	@sudo rm -f $(LUA_LIBDIR)$(BETA)/htmlEntities.lua
 	@sudo rm -f $(LUA_SHAREDIR)$(BETA)/htmlEntities.lua
 
 unistallall:
-	@echo $(msg_install)
+	@echo $(msg_unistall)
 	@sudo rm -f $(LUA_LIBDIR)$(LAST)/htmlEntities.lua
 	@sudo rm -f $(LUA_LIBDIR)$(LUA)/htmlEntities.lua
 	@sudo rm -f $(LUA_LIBDIR)$(BETA)/htmlEntities.lua
