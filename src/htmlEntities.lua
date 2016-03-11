@@ -30,7 +30,7 @@ Copyright (c) 2016 Tiago Danin
 ]==]--
 
 local htmlEntities = {
-	version = '0.3',
+	version = '0.3.1',
 	name = 'htmlEntities-for-lua',
 	author = 'Tiago Danin - 2016',
 	license = 'The MIT License (MIT)',
