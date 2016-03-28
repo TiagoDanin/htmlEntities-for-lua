@@ -30,10 +30,10 @@ Copyright (c) 2016 Tiago Danin
 ]==]--
 
 local htmlEntities = {
-	version = '0.3.1',
+	version = '0.4.0',
 	name = 'htmlEntities-for-lua',
 	author = 'Tiago Danin - 2016',
-	license = 'The MIT License (MIT)',
+	license = 'MIT',
 	page = 'github.com/TiagoDanin/htmlEntities-for-lua'
 }
 
@@ -311,14 +311,25 @@ local htmlEntities_table = {
 	['&#8482;'] = '™'
 }
 
-function htmlEntities.ASCII_dec (input)
-	if not input then print('htmlEntities >> ERRO: input is value nil') return end
+function htmlEntities.ASCII_DEC (input)
+	if not input then print('htmlEntities[ASCII_DEC] >> ERRO: input is value nil') return end
+	if string.len(input) == 2 then
+		input = tonumber(input, 16)
+		local output = htmlEntities.ASCII_HEX(input)
+		return output
+	else
+		return input
+	end
+end
+
+function htmlEntities.ASCII_HEX (input)
+	if not input then print('htmlEntities[ASCII_HEX] >> ERRO: input is value nil') return end
 	if math.abs(input) < 256 then
 		if _VERSION == 'Lua 5.3' then
 			return utf8.char(input)
 		else
 			local output = string.char(input)
-			if utf8_htmlEntities and not output:match('([%z\1-\127\194-\244][\128-\191]*)')then
+			if utf8_htmlEntities and not output:match('([%z\1-\127\194-\244][\128-\191]*)') then
 				return input
 			end
 			return output
@@ -329,10 +340,11 @@ function htmlEntities.ASCII_dec (input)
 end
 
 function htmlEntities.decode (input)
-	if not input then print('htmlEntities >> ERRO: input is value nil') return end
+	if not input then print('htmlEntities[decode] >> ERRO: input is value nil') return end
 	local output = string.gsub(input, '&.-;', htmlEntities_table)
 	if ASCII_htmlEntities then
-		output = string.gsub(output, '&#([1234567890]*);', htmlEntities.ASCII_dec)
+		output = string.gsub(output, '&#x([1234567890]*);', htmlEntities.ASCII_DEC)
+		output = string.gsub(output, '&#([1234567890]*);', htmlEntities.ASCII_HEX)
 	end
 
 	if debug_htmlEntities then print('>>'..output) end
@@ -340,12 +352,15 @@ function htmlEntities.decode (input)
 end
 
 function htmlEntities.encode (input)
-	if not input then print('htmlEntities >> ERRO: input is value nil') return end
+	if not input then print('htmlEntities[encode] >> ERRO: input is value nil') return end
 	input = htmlEntities.decode(input)
 	local output = ''
 	for k = 1, string.len(input) do
-		output = output .. '&#'.. string.sub(input,k,k):byte() ..';'
+		local input = string.sub(input,k,k)
+		output = output .. '&#'.. input:byte() ..';'
 	end
+
+	if debug_htmlEntities then print('>>'..output) end
 	return output
 end
 

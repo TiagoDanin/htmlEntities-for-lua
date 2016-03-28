@@ -1,5 +1,6 @@
 CC      = gcc
 INSTALL = install
+TEST = test
 
 PREFIX = /usr/local
 SOURCES = src/htmlEntities.lua
@@ -18,6 +19,12 @@ msg_end = "Files can be located in:'\n '$(LUA_LIBDIR)/*Version' and '$(LUA_SHARE
 install: all
 unistall: unistallall
 
+info:
+	@echo -e '\e[31m \n Module for Lua'
+	@echo -e '\e[32m \n Name:htmlEntities-for-lua\n Author TiagoDanin\n Version: 0.4.0\n License: MIT\n \e[0m'
+
+test:
+	@lua test.lua
 
 installall: all
 all:
