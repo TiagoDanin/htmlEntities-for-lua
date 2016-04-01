@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <title>htmlEntities for lua by TiagoDanin</title>
+  </head>
+
+  <body>
+    <header>
+      <div class="inner">
+        <h1>htmlEntities for lua</h1>
+        <h2>Module for lua, decoding htmlEntities</h2>
+        <a href="https://github.com/TiagoDanin/htmlEntities-for-lua" class="button"><small>View project on</small> GitHub</a>
+      </div>
+    </header>
+
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
+          <h2>
+<a id="htmlentities-for-lua" class="anchor" href="#htmlentities-for-lua" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>htmlEntities for lua</h2>
+
+<p><strong>Module for lua, decoding htmlEntities.</strong></p>
+
+<p>Module for decoding of text using entities html,</p>
+
+<p>or encode of text to entities html.</p>
+
+<h2>
+<a id="requires" class="anchor" href="#requires" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Requires</h2>
+
+<p>Written for Lua 5.2 but will probably run on 5.3 or 5.1.</p>
+
+<h2>
+<a id="setup" class="anchor" href="#setup" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Setup</h2>
+
+<p>Use the terminal <code>wget https://github.com/TiagoDanin/htmlEntities-for-lua/releases/download/0.4.0/htmlEntities-for-lua.0.4.0.zip &amp;&amp; unzip htmlEntities-for-lua.0.4.0.zip &amp;&amp; make install</code></p>
+
+<p>Makefile:</p>
+
+<p>Install for all (lua5.x) <code>$ make all</code></p>
+
+<p>Remove for all (lua5.x) <code>$ make unistallall</code></p>
+
+<p>To install only for a single <code>$ make install5.x</code></p>
+
+<p>The same goes for remove <code>$ make unistall5.x</code></p>
+
+<p><em>Only available from the releases 0.3.1</em></p>
+
+<h2>
+<a id="releases" class="anchor" href="#releases" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Releases</h2>
+
+<p><a href="https://github.com/TiagoDanin/htmlEntities-for-lua/tree/master">htmlEntities-for-lua BETA</a></p>
+
+<p><a href="https://github.com/TiagoDanin/htmlEntities-for-lua/releases/tag/0.4.0">htmlEntities-for-lua V0.4.0</a></p>
+
+<p><a href="https://github.com/TiagoDanin/htmlEntities-for-lua/releases/tag/0.3.1">htmlEntities-for-lua V0.3.1</a></p>
+
+<p><a href="https://github.com/TiagoDanin/htmlEntities-for-lua/releases/tag/0.2">htmlEntities-for-lua V0.2.0</a></p>
+
+<p><a href="https://github.com/TiagoDanin/htmlEntities-for-lua/releases/tag/0.1">htmlEntities-for-lua V0.1.0</a></p>
+
+<h2>
+<a id="doc" class="anchor" href="#doc" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>DOC</h2>
+
+<p>Module function:</p>
+
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Info</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>htmlEntities.decode(input)</td>
+<td>Decode html entities to text</td>
+</tr>
+<tr>
+<td>htmlEntities.encode(input)</td>
+<td>Encode text to html entities :v</td>
+</tr>
+<tr>
+<td>htmlEntities.ASCII_HEX(input)</td>
+<td>Decode for ASCII HEX</td>
+</tr>
+<tr>
+<td>htmlEntities.ASCII_DEC(input)</td>
+<td>Decode for ASCII DEC</td>
+</tr>
+</tbody>
+</table>
+
+<p>Module option:</p>
+
+<table>
+<thead>
+<tr>
+<th>String</th>
+<th>Default</th>
+<th>Info</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>debug_htmlEntities</td>
+<td>false</td>
+<td>Print in output</td>
+</tr>
+<tr>
+<td>ASCII_htmlEntities</td>
+<td>true</td>
+<td>Decode for entities ASCII</td>
+</tr>
+<tr>
+<td>utf8_htmlEntities</td>
+<td>true</td>
+<td>Force utf8 for &lt;= lua5.2</td>
+</tr>
+<tr>
+<td>register_global_module_htmlEntities</td>
+<td>false</td>
+<td>register module global</td>
+</tr>
+<tr>
+<td>global_module_name_htmlEntities</td>
+<td>"htmlEntities"</td>
+<td>Name (global module)</td>
+</tr>
+</tbody>
+</table>
+
+<h2>
+<a id="pages" class="anchor" href="#pages" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Pages</h2>
+
+<p>Module <a href="https://github.com/TiagoDanin/htmlEntities-for-lua/blob/master/src/htmlEntities.lua">file</a></p>
+
+<p>Makefile <a href="https://github.com/TiagoDanin/htmlEntities-for-lua/blob/master/Makefile">file</a></p>
+
+<p>Example <a href="https://github.com/TiagoDanin/htmlEntities-for-lua/blob/master/example/example.lua">file</a></p>
+
+<p>Suggestions and Support <a href="https://github.com/TiagoDanin/htmlEntities-for-lua/issues/new">New Issue</a></p>
+
+<p>For stable versions to access <a href="https://github.com/TiagoDanin/htmlEntities-for-lua/releases">Releases</a></p>
+
+<h2>
+<a id="license" class="anchor" href="#license" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>LICENSE</h2>
+
+<p>The MIT License <a href="https://github.com/TiagoDanin/htmlEntities-for-lua/blob/master/LICENSE">(MIT)</a></p>
+
+<hr>
+
+<blockquote>
+<p>Copyright (c) 2016 Tiago Danin</p>
+</blockquote>
+        </section>
+
+        <aside id="sidebar">
+          <a href="https://github.com/TiagoDanin/htmlEntities-for-lua/zipball/master" class="button">
+            <small>Download</small>
+            .zip file
+          </a>
+          <a href="https://github.com/TiagoDanin/htmlEntities-for-lua/tarball/master" class="button">
+            <small>Download</small>
+            .tar.gz file
+          </a>
+
+          <p class="repo-owner"><a href="https://github.com/TiagoDanin/htmlEntities-for-lua"></a> is maintained by <a href="https://github.com/TiagoDanin">TiagoDanin</a>.</p>
+
+          <p>This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the Architect theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
+        </aside>
+      </div>
+    </div>
+
+  
+  </body>
+</html>
