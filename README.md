@@ -11,7 +11,7 @@ Written for Lua 5.2 but will probably run on 5.3 or 5.1.
 
 
 ## Setup
-Use the terminal `wget https://github.com/TiagoDanin/htmlEntities-for-lua/releases/download/0.4.0/htmlEntities-for-lua.0.4.0.zip && unzip htmlEntities-for-lua.0.4.0.zip && make install
+Use the terminal `wget https://github.com/TiagoDanin/htmlEntities-for-lua/releases/download/0.4.0/htmlEntities-for-lua.0.4.0.zip && unzip htmlEntities-for-lua.0.4.0.zip && make install`
 
 
 Makefile:
