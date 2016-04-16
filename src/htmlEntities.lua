@@ -38,7 +38,7 @@ local htmlEntities = {
 }
 
 if register_global_module_htmlEntities then
-  _G[global_module_name_htmlEntities] = htmlEntities
+	_G[global_module_name_htmlEntities] = htmlEntities
 end
 
 local htmlEntities_table = {
@@ -312,7 +312,7 @@ local htmlEntities_table = {
 }
 
 function htmlEntities.ASCII_DEC (input)
-	if not input then print('htmlEntities[ASCII_DEC] >> ERRO: input is value nil') return end
+	if not input then print('htmlEntities[ASCII_DEC] >> ERRO: input is value nil') return false end
 	if string.len(input) == 2 then
 		input = tonumber(input, 16)
 		local output = htmlEntities.ASCII_HEX(input)
@@ -323,7 +323,7 @@ function htmlEntities.ASCII_DEC (input)
 end
 
 function htmlEntities.ASCII_HEX (input)
-	if not input then print('htmlEntities[ASCII_HEX] >> ERRO: input is value nil') return end
+	if not input then print('htmlEntities[ASCII_HEX] >> ERRO: input is value nil') return false end
 	if math.abs(input) < 256 then
 		if _VERSION == 'Lua 5.3' then
 			return utf8.char(input)
@@ -340,7 +340,7 @@ function htmlEntities.ASCII_HEX (input)
 end
 
 function htmlEntities.decode (input)
-	if not input then print('htmlEntities[decode] >> ERRO: input is value nil') return end
+	if not input then print('htmlEntities[decode] >> ERRO: input is value nil') return false end
 	local output = string.gsub(input, '&.-;', htmlEntities_table)
 	if ASCII_htmlEntities then
 		output = string.gsub(output, '&#x([1234567890]*);', htmlEntities.ASCII_DEC)
@@ -352,7 +352,7 @@ function htmlEntities.decode (input)
 end
 
 function htmlEntities.encode (input)
-	if not input then print('htmlEntities[encode] >> ERRO: input is value nil') return end
+	if not input then print('htmlEntities[encode] >> ERRO: input is value nil') return false end
 	input = htmlEntities.decode(input)
 	local output = ''
 	for k = 1, string.len(input) do
