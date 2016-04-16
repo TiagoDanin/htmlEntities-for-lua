@@ -1,5 +1,5 @@
 ## htmlEntities for lua
-**Module for lua, decoding htmlEntities.**
+**Module for lua, decoding html entities :)**
 
 Module for decoding of text using entities html,
 
