@@ -30,7 +30,7 @@ The same goes for remove `$ make unistall5.x`
 ## #{Releases}
 [htmlEntities-for-lua BETA](https://github.com/TiagoDanin/htmlEntities-for-lua/tree/master)
 
-[htmlEntities-for-lua V0.4.0](https://github.com/TiagoDanin/htmlEntities-for-lua/releases/tag/1.0.0)
+[htmlEntities-for-lua V0.1.0](https://github.com/TiagoDanin/htmlEntities-for-lua/releases/tag/1.0.0)
 
 [htmlEntities-for-lua V0.4.0](https://github.com/TiagoDanin/htmlEntities-for-lua/releases/tag/0.4.0)
 
