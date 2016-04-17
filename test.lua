@@ -2,7 +2,7 @@ htmlEntities = require('src/htmlEntities')
 
 print('\n\nInit test htmlEntities')
 local text = [[&amp;&#88;&#65;&#77;&#80;&#76;&#69; text
-&it;&equiv;&equiv;&equiv;&equiv;&equiv;&equiv;&equiv;&equiv;&equiv;&equiv;&gt;]]
+&lt;&equiv;&equiv;&equiv;&equiv;&equiv;&equiv;&equiv;&equiv;&equiv;&equiv;&gt;]]
 
 for k,v in pairs(htmlEntities) do
 	if v and type(v) == 'string' then -- Print Info
@@ -18,6 +18,7 @@ repeat
 	io.write('\nYou want to do a test (y/n) ')
 	io.flush()
 	res = io.read()
+	res = string.lower(res)
 until res == 'y' or res == 'n'
 
 function type()
@@ -25,6 +26,7 @@ function type()
 		io.write('\n    d = Decode    e = Encode    s = SpeedTest    a = ASCII_Decode\n    > ')
 		io.flush()
 		res = io.read()
+		res = string.lower(res)
 	until res == 'd' or res == 'e' or res == 's' or res == 'a'
 
 	function test_decode()

@@ -21,7 +21,7 @@ unistall: unistallall
 
 info:
 	@echo -e '\e[31m \n Module for Lua'
-	@echo -e '\e[32m \n Name:htmlEntities-for-lua\n Author TiagoDanin\n Version: 0.4.0\n License: MIT\n \e[0m'
+	@echo -e '\e[32m \n Name:htmlEntities-for-lua\n Author TiagoDanin\n Version: 1.0.0\n License: MIT\n \e[0m'
 
 test:
 	@lua test.lua
