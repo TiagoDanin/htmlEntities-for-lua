@@ -1,0 +1,13 @@
+language: c
+env:
+  global:
+    - LUAROCKS=2.3.0
+  matrix:
+    - LUA=lua5.1
+    - LUA=lua5.2
+    - LUA=lua5.3
+install:
+    - luarocks make
+script:
+    - lua tests/travis.lua
+sudo: true

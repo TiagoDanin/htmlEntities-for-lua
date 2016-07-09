@@ -1,20 +1,19 @@
 ## #{htmlEntities for lua}
 **Module for lua, decoding html entities :)**
 
-Module for decoding of text using entities html,
+Module for decoding of text using entities html
 
-or encode of text to entities html.
+or encode of text to entities html :V
 
 
-## #{Requires}
+## Requires
 Written for Lua5.x
 
 
-## #{Setup}
-Use the terminal `wget https://github.com/TiagoDanin/htmlEntities-for-lua/releases/download/1.0.0/htmlEntities-for-lua.1.0.0.zip && unzip htmlEntities-for-lua.1.0.0.zip && make install`
+## Setup
+Use the terminal(luarocks) `$ `
 
-
-Makefile:
+Or Makefile(Debian):
 
 Install for all (lua5.x) `$ make all`
 
@@ -27,10 +26,10 @@ The same goes for remove `$ make unistall5.x`
 *Only available from the releases 0.3.1*
 
 
-## #{Releases}
+## Releases
 [htmlEntities-for-lua BETA](https://github.com/TiagoDanin/htmlEntities-for-lua/tree/master)
 
-[htmlEntities-for-lua V0.1.0](https://github.com/TiagoDanin/htmlEntities-for-lua/releases/tag/1.0.0)
+[htmlEntities-for-lua V0.1.0](https://github.com/TiagoDanin/htmlEntities-for-lua/releases/tag/1.0.1)
 
 [htmlEntities-for-lua V0.4.0](https://github.com/TiagoDanin/htmlEntities-for-lua/releases/tag/0.4.0)
 
@@ -41,7 +40,7 @@ The same goes for remove `$ make unistall5.x`
 [htmlEntities-for-lua V0.1.0](https://github.com/TiagoDanin/htmlEntities-for-lua/releases/tag/0.1)
 
 
-## #{DOC}
+## DOC
 Module function:
 
 Function                      |                            Info |
@@ -55,7 +54,7 @@ Module option:
 
 String                              | Default        | Info                     |
 ------------------------------------|----------------|--------------------------|
-erro_msg_htmlEntities               | false          | View log of erros
+error_msg_htmlEntities              | false          | View log of erros
 debug_htmlEntities                  | false          | Print output
 ASCII_htmlEntities                  | true           | Decode for entities ASCII
 utf8_htmlEntities                   | true           | Force utf8 for <= lua5.2
@@ -63,7 +62,7 @@ register_global_module_htmlEntities | false          | Register module global
 global_module_name_htmlEntities     | "htmlEntities" | Name (global module)
 
 
-## #{Pages}
+## Pages
 Module [file](https://github.com/TiagoDanin/htmlEntities-for-lua/blob/master/src/htmlEntities.lua)
 
 Makefile [file](https://github.com/TiagoDanin/htmlEntities-for-lua/blob/master/Makefile)
@@ -75,7 +74,7 @@ Suggestions and Support [New Issue](https://github.com/TiagoDanin/htmlEntities-f
 For stable versions to access [Releases](https://github.com/TiagoDanin/htmlEntities-for-lua/releases)
 
 
-## #{LICENSE}
+## LICENSE
 The MIT License [(MIT)](https://github.com/TiagoDanin/htmlEntities-for-lua/blob/master/LICENSE)
 
 ---
