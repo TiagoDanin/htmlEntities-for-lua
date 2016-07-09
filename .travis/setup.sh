@@ -39,16 +39,4 @@ cd $LUAROCKS_BASE
 make build && make install
 ln -s $LR_HOME_DIR/bin/luarocks $HOME/.lua/luarocks
 
-cd $TRAVIS_BUILD_DI
-luarocks --version
-rm -rf $LUAROCKS_BASE
-
-if [ "$LUA" == "lua5.1" ]; then
-	rm -rf lua-5.1.5;
-elif [ "$LUA" == "lua5.2" ]; then
-	rm -rf lua-5.2.4;
-elif [ "$LUA" == "lua5.3" ]; then
-	rm -rf lua-5.3.2;
-fi
-
 eval `$HOME/.lua/luarocks path`
