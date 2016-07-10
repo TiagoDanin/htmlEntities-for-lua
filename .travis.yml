@@ -7,7 +7,7 @@ env:
     - LUA=lua5.2
     - LUA=lua5.3
 install:
-    - source .travis/setup.sh
+    - source .travis/setenv_lua.sh
     - luarocks make
 script:
     - lua tests/travis.lua
