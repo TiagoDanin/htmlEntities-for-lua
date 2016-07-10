@@ -1,4 +1,4 @@
-htmlEntities = require('htmlEntities')
+htmlEntities = require('htmlEntities')--require('src/htmlEntities')
 
 print('\n\nInit test htmlEntities')
 local text = [[&amp;&#88;&#65;&#77;&#80;&#76;&#69; text
@@ -60,7 +60,7 @@ function type()
 			dec = string.format('%02X', hex)
 			local x_1 = htmlEntities.ASCII_HEX(hex)
 			table.insert(char, x_1)
-			local x_2 =utf8 htmlEntities.ASCII_DEC(dec)
+			local x_2 = htmlEntities.ASCII_DEC(dec)
 			table.insert(char, x_2)
 		end
 		local time_1 = io.popen('date +%S.%N'):read('*all')

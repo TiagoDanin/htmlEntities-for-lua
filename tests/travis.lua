@@ -18,7 +18,7 @@ for i = 33, 255 do
 	dec = string.format('%02X', hex)
 	local x_1 = htmlEntities.ASCII_HEX(hex)
 	table.insert(char, x_1)
-	local x_2 =utf8 htmlEntities.ASCII_DEC(dec)
+	local x_2 = htmlEntities.ASCII_DEC(dec)
 	table.insert(char, x_2)
 end
 local encode = {'&micro;', '&yen;', '&uuml;', '&lrm;', '&#8482;', '&lceil;', '&#45;'}

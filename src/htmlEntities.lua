@@ -31,7 +31,7 @@ Copyright (c) 2016 Tiago Danin
 ]==]--
 
 local htmlEntities = {
-	version = '1.0.1',
+	version = '1.0.2',
 	name = 'htmlEntities-for-lua',
 	author = 'Tiago Danin - 2016',
 	license = 'MIT',
@@ -2314,20 +2314,6 @@ local htmlEntities_table = {
 	['&#8482;'] = '™'
 }
 
-function htmlEntities.ASCII_DEC (input)
-	if not input then
-		if error_msg_htmlEntities then error('htmlEntities[ASCII_DEC] >> ERRO: input is value nil') end
-		return false
-	end
-	if string.len(input) == 2 then
-		input = tonumber(input, 16)
-		local output = htmlEntities.ASCII_HEX(input)
-		return output
-	else
-		return input
-	end
-end
-
 function htmlEntities.ASCII_HEX (input)
 	if not input then
 		if error_msg_htmlEntities then error('htmlEntities[ASCII_HEX] >> ERRO: input is value nil') end
@@ -2343,6 +2329,20 @@ function htmlEntities.ASCII_HEX (input)
 			end
 			return output
 		end
+	else
+		return input
+	end
+end
+
+function htmlEntities.ASCII_DEC (input)
+	if not input then
+		if error_msg_htmlEntities then error('htmlEntities[ASCII_DEC] >> ERRO: input is value nil') end
+		return false
+	end
+	if string.len(input) == 2 then
+		input = tonumber(input, 16)
+		local output = htmlEntities.ASCII_HEX(input)
+		return output
 	else
 		return input
 	end

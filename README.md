@@ -1,4 +1,4 @@
-## #{htmlEntities for lua}
+## htmlEntities for lua  [![Build Status](https://travis-ci.org/TiagoDanin/htmlEntities-for-lua.svg?branch=master)](https://travis-ci.org/TiagoDanin/htmlEntities-for-lua) [![MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/TiagoDanin/htmlEntities-for-lua/blob/master/LICENSE) [![Luarocks](https://img.shields.io/badge/Luarocks-html--entities-yellow.svg)](http://luarocks.org/modules/tiagodanin/html-entities)
 **Module for lua, decoding html entities :)**
 
 Module for decoding of text using entities html
@@ -9,9 +9,8 @@ or encode of text to entities html :V
 ## Requires
 Written for Lua5.x
 
-
 ## Setup
-Use the terminal(luarocks) `$ `
+Use the terminal(luarocks) `$ luarocks install html-entities`
 
 Or Makefile(Debian):
 
@@ -27,17 +26,11 @@ The same goes for remove `$ make unistall5.x`
 
 
 ## Releases
-[htmlEntities-for-lua BETA](https://github.com/TiagoDanin/htmlEntities-for-lua/tree/master)
+[BETA](https://github.com/TiagoDanin/htmlEntities-for-lua/tree/master)
 
-[htmlEntities-for-lua V0.1.0](https://github.com/TiagoDanin/htmlEntities-for-lua/releases/tag/1.0.1)
+[Stable](https://github.com/TiagoDanin/htmlEntities-for-lua/releases)
 
-[htmlEntities-for-lua V0.4.0](https://github.com/TiagoDanin/htmlEntities-for-lua/releases/tag/0.4.0)
-
-[htmlEntities-for-lua V0.3.1](https://github.com/TiagoDanin/htmlEntities-for-lua/releases/tag/0.3.1)
-
-[htmlEntities-for-lua V0.2.0](https://github.com/TiagoDanin/htmlEntities-for-lua/releases/tag/0.2)
-
-[htmlEntities-for-lua V0.1.0](https://github.com/TiagoDanin/htmlEntities-for-lua/releases/tag/0.1)
+[Luarocks](http://luarocks.org/modules/tiagodanin/html-entities)
 
 
 ## DOC
