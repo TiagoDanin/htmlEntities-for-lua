@@ -1,4 +1,4 @@
-## htmlEntities for lua  [![Build Status](https://travis-ci.org/TiagoDanin/htmlEntities-for-lua.svg?branch=master)](https://travis-ci.org/TiagoDanin/htmlEntities-for-lua) [![MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/TiagoDanin/htmlEntities-for-lua/blob/master/LICENSE) [![Luarocks](https://img.shields.io/badge/Luarocks-html--entities-yellow.svg)](http://luarocks.org/modules/tiagodanin/html-entities)
+## htmlEntities for lua  [![Build Status](https://travis-ci.org/TiagoDanin/htmlEntities-for-lua.svg?branch=master)](https://travis-ci.org/TiagoDanin/htmlEntities-for-lua) [![GPLv3](https://img.shields.io/aur/license/yaourt.svg?maxAge=2592000)](https://github.com/TiagoDanin/htmlEntities-for-lua/blob/master/LICENSE) [![Luarocks](https://img.shields.io/badge/Luarocks-html--entities-yellow.svg)](http://luarocks.org/modules/tiagodanin/html-entities)
 **Module for lua, decoding html entities :)**
 
 Module for decoding of text using entities html
@@ -7,23 +7,10 @@ or encode of text to entities html :V
 
 
 ## Requires
-Written for Lua5.x
+Written for Lua5.3 but working with lua5.2 and 5.1
 
 ## Setup
 Use the terminal(luarocks) `$ luarocks install html-entities`
-
-Or Makefile(Debian):
-
-Install for all (lua5.x) `$ make all`
-
-Remove for all (lua5.x) `$ make unistallall`
-
-To install only for a single `$ make install5.x`
-
-The same goes for remove `$ make unistall5.x`
-
-*Only available from the releases 0.3.1*
-
 
 ## Releases
 [BETA](https://github.com/TiagoDanin/htmlEntities-for-lua/tree/master)
@@ -58,8 +45,6 @@ global_module_name_htmlEntities     | "htmlEntities" | Name (global module)
 ## Pages
 Module [file](https://github.com/TiagoDanin/htmlEntities-for-lua/blob/master/src/htmlEntities.lua)
 
-Makefile [file](https://github.com/TiagoDanin/htmlEntities-for-lua/blob/master/Makefile)
-
 Example [file](https://github.com/TiagoDanin/htmlEntities-for-lua/blob/master/example/example.lua)
 
 Suggestions and Support [New Issue](https://github.com/TiagoDanin/htmlEntities-for-lua/issues/new)
@@ -68,7 +53,7 @@ For stable versions to access [Releases](https://github.com/TiagoDanin/htmlEntit
 
 
 ## LICENSE
-The MIT License [(MIT)](https://github.com/TiagoDanin/htmlEntities-for-lua/blob/master/LICENSE)
+GNU GENERAL PUBLIC LICENSE V3 [(GPL)](https://github.com/TiagoDanin/htmlEntities-for-lua/blob/master/LICENSE)
 
 ---
 >Copyright (c) 2016 Tiago Danin
