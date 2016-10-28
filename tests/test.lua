@@ -13,21 +13,7 @@ end
 local dec = htmlEntities.decode(text)
 print('\nInput: ' .. text .. '\n\nOutput: ' .. dec)
 
-
-repeat
-	io.write('\nYou want to do a test (y/n) ')
-	io.flush()
-	res = io.read()
-	res = string.lower(res)
-until res == 'y' or res == 'n'
-
-function type()
-	repeat
-		io.write('\n    d = Decode    e = Encode    s = SpeedTest    a = ASCII_Decode\n    > ')
-		io.flush()
-		res = io.read()
-		res = string.lower(res)
-	until res == 'd' or res == 'e' or res == 's' or res == 'a'
+function type_test()
 
 	function test_decode()
 		local init = true
@@ -106,6 +92,25 @@ function type()
 		end
 	end
 
+	if arg[1] then
+		if arg[1] == 'd' then
+			return test_decode()
+		elseif arg[1] == 'e' then
+			return test_encode()
+		elseif arg[1] == 's' then
+			return test_speed()
+		elseif arg[1] == 'a' then
+			return test_ascii()
+		end
+	else
+		repeat
+			io.write('\n    d = Decode    e = Encode    s = SpeedTest    a = ASCII_Decode\n    > ')
+			io.flush()
+			res = io.read()
+			res = string.lower(res)
+		until res == 'd' or res == 'e' or res == 's' or res == 'a'
+	end
+
 	-- Res
 	if res == 'd' then
 		test_decode()
@@ -118,4 +123,15 @@ function type()
 	end
 end
 
-if res == 'y' then type() end
+if arg[1] then
+	type_test()
+else
+	repeat
+		io.write('\nYou want to do a test (y/n) ')
+		io.flush()
+		res = io.read()
+		res = string.lower(res)
+	until res == 'y' or res == 'n'
+
+	if res == 'y' then type_test() end
+end

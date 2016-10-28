@@ -10,5 +10,6 @@ install:
     - source .travis/setenv_lua.sh
     - luarocks make
 script:
+    - lua test/test.lua s
     - lua tests/travis.lua
 sudo: true

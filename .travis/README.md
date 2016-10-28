@@ -1,1 +1,1 @@
-Thank https://github.com/moteus/lua-travis-example
+Thank https://github.com/moteus/lua-travis-example :)

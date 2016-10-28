@@ -27,6 +27,18 @@ for i,v in ipairs(char) do
 	table.insert(encode, x)
 end
 for i,v in ipairs(encode) do
-	htmlEntities.decode(v)
+	local x = htmlEntities.decode(v)
+	if not x == v:htmlDecode() then
+		print('ERROR!')
+		print(string.format('%s: %s - %s', v, x, v:htmlDecode()))
+		return
+	end
 end
-print("\n\nEnd Test - travis.lua")
+local table = {
+	['tiago'] = 'danin'
+}
+if not htmlEntities.filter('tiago', table) == 'danin' then
+	print('ERROR!')
+end
+
+print("\nEnd Test - travis.lua")
