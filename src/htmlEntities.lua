@@ -31,10 +31,10 @@ Copyright (c) 2016 Tiago Danin
 ]==]--
 
 local htmlEntities = {
-	version = '1.0.2',
+	version = '1.1.0',
 	name = 'htmlEntities-for-lua',
 	author = 'Tiago Danin - 2016',
-	license = 'MIT',
+	license = 'GPLv3',
 	page = 'https://TiagoDanin.github.io/htmlEntities-for-lua/'
 }
 
@@ -2314,9 +2314,25 @@ local htmlEntities_table = {
 	['&#8482;'] = '™'
 }
 
+function htmlEntities.filter (input, table)
+	if not input then
+		if error_msg_htmlEntities then error('htmlEntities[filter] >> ERROR: input is value nil') end
+		return false
+	end
+	if not table then
+		if error_msg_htmlEntities then error('htmlEntities[filter] >> ERROR: table is value nil') end
+		return false
+	end
+	local output = input
+	for s, v in pairs(table) do
+		output = output:gsub(s, v)
+	end
+	return output
+end
+
 function htmlEntities.ASCII_HEX (input)
 	if not input then
-		if error_msg_htmlEntities then error('htmlEntities[ASCII_HEX] >> ERRO: input is value nil') end
+		if error_msg_htmlEntities then error('htmlEntities[ASCII_HEX] >> ERROR: input is value nil') end
 		return false
 	end
 	if math.abs(input) < 256 then
@@ -2336,7 +2352,7 @@ end
 
 function htmlEntities.ASCII_DEC (input)
 	if not input then
-		if error_msg_htmlEntities then error('htmlEntities[ASCII_DEC] >> ERRO: input is value nil') end
+		if error_msg_htmlEntities then error('htmlEntities[ASCII_DEC] >> ERROR: input is value nil') end
 		return false
 	end
 	if string.len(input) == 2 then
@@ -2350,7 +2366,7 @@ end
 
 function htmlEntities.decode (input)
 	if not input then
-		if error_msg_htmlEntities then error('htmlEntities[decode] >> ERRO: input is value nil') end
+		if error_msg_htmlEntities then error('htmlEntities[decode] >> ERROR: input is value nil') end
 		return false
 	end
 	local output = string.gsub(input, '&.-;', htmlEntities_table)
@@ -2365,7 +2381,7 @@ end
 
 function htmlEntities.encode (input)
 	if not input then
-		if error_msg_htmlEntities then error('htmlEntities[encode] >> ERRO: input is value nil') end
+		if error_msg_htmlEntities then error('htmlEntities[encode] >> ERROR: input is value nil') end
 		return false
 	end
 	input = htmlEntities.decode(input)
@@ -2377,6 +2393,16 @@ function htmlEntities.encode (input)
 
 	if debug_htmlEntities then print('>>'..output) end
 	return output
+end
+
+function string:htmlDecode(filter)
+	if not self then return false end
+	return htmlEntities.decode(self)
+end
+
+function string:htmlEncode(filter)
+	if not self then return false end
+	return htmlEntities.encode(self)
 end
 
 return htmlEntities
