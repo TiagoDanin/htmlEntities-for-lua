@@ -45,8 +45,6 @@ global_module_name_htmlEntities     | "htmlEntities" | Name (global module)
 ## Pages
 Module [file](https://github.com/TiagoDanin/htmlEntities-for-lua/blob/master/src/htmlEntities.lua)
 
-Example [file](https://github.com/TiagoDanin/htmlEntities-for-lua/blob/master/example/example.lua)
-
 Suggestions and Support [New Issue](https://github.com/TiagoDanin/htmlEntities-for-lua/issues/new)
 
 For stable versions to access [Releases](https://github.com/TiagoDanin/htmlEntities-for-lua/releases)
