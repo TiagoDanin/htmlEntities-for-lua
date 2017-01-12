@@ -8,7 +8,7 @@ local global_module_name_htmlEntities = 'htmlEntities'
 
 --[==[
 The MIT License (MIT)
-Copyright (c) 2016 Tiago Danin
+Copyright (c) 2017 Tiago Danin
 
  Permission is hereby granted, free of charge, to any person obtaining a copy
  of this software and associated documentation files (the "Software"), to deal
@@ -31,9 +31,9 @@ Copyright (c) 2016 Tiago Danin
 ]==]--
 
 local htmlEntities = {
-	version = '1.1.0',
+	version = '1.1.1',
 	name = 'htmlEntities-for-lua',
-	author = 'Tiago Danin - 2016',
+	author = 'Tiago Danin - 2017',
 	license = 'GPLv3',
 	page = 'https://TiagoDanin.github.io/htmlEntities-for-lua/'
 }
@@ -52,7 +52,7 @@ local htmlEntities_table = {
 	['&quot'] = '"',
 	['&num;'] = '#',
 	['&dollar;'] = '$',
-	['&percnt;'] = '%',
+	['&percnt;'] = '%%',
 	['&AMP;'] = '&',
 	['&AMP'] = '&',
 	['&amp;'] = '&',
@@ -2279,7 +2279,7 @@ local htmlEntities_table = {
 	['&#34;'] = '"',
 	['&#35;'] = '#',
 	['&#36;'] = '$',
-	['&#37;'] = '%',
+	['&#37;'] = '%%',
 	['&#38;'] = '&',
 	['&#39;'] = "'",
 	['&#40;'] = '(',
