@@ -54,4 +54,4 @@ For stable versions to access [Releases](https://github.com/TiagoDanin/htmlEntit
 GNU GENERAL PUBLIC LICENSE V3 [(GPL)](https://github.com/TiagoDanin/htmlEntities-for-lua/blob/master/LICENSE)
 
 ---
->Copyright (c) 2016 Tiago Danin
+> By Tiago Danin
