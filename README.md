@@ -37,7 +37,6 @@ String                              | Default        | Info                     
 error_msg_htmlEntities              | false          | View log of erros
 debug_htmlEntities                  | false          | Print output
 ASCII_htmlEntities                  | true           | Decode for entities ASCII
-utf8_htmlEntities                   | true           | Force utf8 for <= lua5.2
 register_global_module_htmlEntities | false          | Register module global
 global_module_name_htmlEntities     | "htmlEntities" | Name (global module)
 
