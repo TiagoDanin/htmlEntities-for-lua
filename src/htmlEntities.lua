@@ -2,7 +2,6 @@
 local error_msg_htmlEntities = false
 local debug_htmlEntities = false
 local ASCII_htmlEntities = true
-local utf8_htmlEntities = true
 local register_global_module_htmlEntities = false
 local global_module_name_htmlEntities = 'htmlEntities'
 
@@ -2311,18 +2310,29 @@ function htmlEntities.ASCII_HEX (input)
 		if error_msg_htmlEntities then error('htmlEntities[ASCII_HEX] >> ERROR: input is value nil') end
 		return false
 	end
-	if math.abs(input) < 256 then
-		if _VERSION == 'Lua 5.3' then
-			return utf8.char(input)
-		else
-			local output = string.char(input)
-			if utf8_htmlEntities and not output:match('([%z\1-\127\194-\244][\128-\191]*)') then
-				return input
-			end
-			return output
-		end
+	if math.abs(_VERSION:sub(-1)) >= 3 then
+		return utf8.char(input)
 	else
-		return input
+		input = math.abs(input)
+		if input < 128 then
+			return string.char(input)
+		else
+			--> FIX UTF8 for Lua 5.2,5.1 https://stackoverflow.com/a/26052539
+			local bytemarkers = {{0x7FF,192},{0xFFFF,224},{0x1FFFFF,240}}
+			local charbytes = {}
+			for bytes, vals in ipairs(bytemarkers) do
+				if input <= vals[1] then
+					for b = bytes+1, 2, -1 do
+						local mod = input % 64
+						input = (input - mod) / 64
+						charbytes[b] = string.char(128 + mod)
+					end
+					charbytes[1] = string.char(vals[2] + input)
+					break
+				end
+			end
+			return table.concat(charbytes)
+		end
 	end
 end
 
@@ -2331,13 +2341,8 @@ function htmlEntities.ASCII_DEC (input)
 		if error_msg_htmlEntities then error('htmlEntities[ASCII_DEC] >> ERROR: input is value nil') end
 		return false
 	end
-	if string.len(input) == 2 then
-		input = tonumber(input, 16)
-		local output = htmlEntities.ASCII_HEX(input)
-		return output
-	else
-		return input
-	end
+	local output = htmlEntities.ASCII_HEX(tonumber(input, 16))
+	return output
 end
 
 function htmlEntities.decode (input)
