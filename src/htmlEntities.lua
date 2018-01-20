@@ -6,10 +6,10 @@ local register_global_module_htmlEntities = false
 local global_module_name_htmlEntities = 'htmlEntities'
 
 local htmlEntities = {
-	version = '1.1.1',
+	version = '1.2.0',
 	name = 'htmlEntities-for-lua',
-	author = 'Tiago Danin - 2017',
-	license = 'GPLv3',
+	author = 'Tiago Danin',
+	license = 'MIT',
 	page = 'https://TiagoDanin.github.io/htmlEntities-for-lua/'
 }
 
