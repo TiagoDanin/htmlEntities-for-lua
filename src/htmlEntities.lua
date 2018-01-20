@@ -2364,7 +2364,11 @@ function htmlEntities.encode (input)
 	local output = ''
 	for k = 1, string.len(input) do
 		local input = string.sub(input,k,k)
-		output = output .. '&#'.. input:byte() ..';'
+		if (input:match('(%w)')) then
+			output = output .. '&#'.. input:byte() ..';'
+		else
+			output = output .. input
+		end
 	end
 
 	if debug_htmlEntities then print('>>'..output) end
