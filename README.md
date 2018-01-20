@@ -1,4 +1,4 @@
-## htmlEntities for lua  [![Build Status](https://travis-ci.org/TiagoDanin/htmlEntities-for-lua.svg?branch=master)](https://travis-ci.org/TiagoDanin/htmlEntities-for-lua) [![GPLv3](https://img.shields.io/aur/license/yaourt.svg?maxAge=2592000)](https://github.com/TiagoDanin/htmlEntities-for-lua/blob/master/LICENSE) [![Luarocks](https://img.shields.io/badge/Luarocks-html--entities-yellow.svg)](http://luarocks.org/modules/tiagodanin/html-entities)
+## htmlEntities for lua  [![Build Status](https://travis-ci.org/TiagoDanin/htmlEntities-for-lua.svg?branch=master)](https://travis-ci.org/TiagoDanin/htmlEntities-for-lua) [![Luarocks](https://img.shields.io/badge/Luarocks-html--entities-yellow.svg)](http://luarocks.org/modules/tiagodanin/html-entities)
 **Module for lua, decoding html entities :)**
 
 Module for decoding of text using entities html
@@ -50,7 +50,7 @@ For stable versions to access [Releases](https://github.com/TiagoDanin/htmlEntit
 
 
 ## LICENSE
-GNU GENERAL PUBLIC LICENSE V3 [(GPL)](https://github.com/TiagoDanin/htmlEntities-for-lua/blob/master/LICENSE)
+[MIT](https://github.com/TiagoDanin/htmlEntities-for-lua/blob/master/LICENSE)
 
 ---
 > By Tiago Danin
