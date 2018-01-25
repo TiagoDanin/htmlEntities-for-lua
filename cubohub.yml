@@ -2,5 +2,6 @@ template_raw: 'https://raw.githubusercontent.com/TiagoDanin/TiagoDanin.github.io
 link_template_raw: 'https://raw.githubusercontent.com/TiagoDanin/TiagoDanin.github.io/master/cubohub/links.html'
 readme: True
 branch: 'gh-pages'
-links:
-  luarocks: 'http://luarocks.org/modules/tiagodanin/html-entities'
+gitauthor:
+  name: 'TiagoDanin'
+  email: 'TiagoDanin@outlook.com'
