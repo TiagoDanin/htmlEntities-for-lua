@@ -2,7 +2,7 @@ package = "html-entities"
 version = "1.3.0-0"
 
 source = {
-	url = "https://github.com/TiagoDanin/htmlEntities-for-lua/archive/1.2.0.tar.gz",
+	url = "https://github.com/TiagoDanin/htmlEntities-for-lua/archive/1.3.0.tar.gz",
 	dir = "htmlEntities-for-lua-1.3.0"
 }
 
