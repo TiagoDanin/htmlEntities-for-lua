@@ -1,5 +1,5 @@
-htmlEntities = require('htmlEntities')
---htmlEntities = require('src/htmlEntities')
+--htmlEntities = require('htmlEntities')
+htmlEntities = require('src/htmlEntities')
 test = require('tests/test')
 
 print('\n\nInit test htmlEntities for Travis')

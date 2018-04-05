@@ -1,5 +1,5 @@
 package = "html-entities"
-version = "git-1"
+version = "git-2"
 
 source = {
 	url = "https://github.com/TiagoDanin/htmlEntities-for-lua.git"
