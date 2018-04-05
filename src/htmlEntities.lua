@@ -6,6 +6,7 @@ local register_global_module_htmlEntities = false
 local global_module_name_htmlEntities = 'htmlEntities'
 
 local htmlEntities = {
+	about = 'HTML entities decoding/encoding',
 	version = '1.2.0',
 	name = 'htmlEntities-for-lua',
 	author = 'Tiago Danin',
@@ -18,7 +19,7 @@ if register_global_module_htmlEntities then
 end
 
 local htmlEntities_table = {
-	['&Tab;'] = '	',
+	['&Tab;'] = ' ',
 	['&NewLine;'] = '\n',
 	['&excl;'] = '!',
 	['&QUOT;'] = '"',
@@ -2317,7 +2318,7 @@ function htmlEntities.ASCII_HEX (input)
 		if input < 128 then
 			return string.char(input)
 		else
-			--> FIX UTF8 for Lua 5.2,5.1 https://stackoverflow.com/a/26052539
+			--> FIX UTF8 for Lua 5.2 and 5.1 https://stackoverflow.com/a/26052539
 			local bytemarkers = {{0x7FF,192},{0xFFFF,224},{0x1FFFFF,240}}
 			local charbytes = {}
 			for bytes, vals in ipairs(bytemarkers) do
@@ -2366,16 +2367,18 @@ function htmlEntities.encode (input)
 		return false
 	end
 	input = htmlEntities.decode(input)
-	local output = ''
-	for k = 1, string.len(input) do
-		local input = string.sub(input,k,k)
-		if (input:match('(%w)')) then
-			output = output .. '&#'.. input:byte() ..';'
+	local output = input:gsub('([%z\1-\127\194-\244][\128-\191]*)',
+	function(char)
+		local charbyte = char:byte()
+		if (string.len(char) == 1) then
+			if charbyte == 32 then -- Space char
+				return ' '
+			end
+			return '&#'.. charbyte ..';'
 		else
-			output = output .. input
+			return char
 		end
-	end
-
+	end)
 	if debug_htmlEntities then print('>>'..output) end
 	return output
 end
