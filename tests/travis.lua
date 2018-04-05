@@ -1,4 +1,6 @@
 htmlEntities = require('htmlEntities')
+--htmlEntities = require('src/htmlEntities')
+test = require('tests/test')
 
 print('\n\nInit test htmlEntities for Travis')
 local text = [[&amp;&#88;&#65;&#77;&#80;&#76;&#69; text
@@ -41,4 +43,8 @@ if not htmlEntities.filter('tiago', table) == 'danin' then
 	print('ERROR!')
 end
 
-print("\nEnd Test - travis.lua")
+print('\nRun more tests :)')
+test.test_speed()
+test.test_ascii()
+
+print('\nEnd Test - travis.lua')
