@@ -7,7 +7,7 @@ source = {
 
 description = {
 	summary = "Module for lua, decoding html entities :)",
-	detailed = "Module for decoding of text using entities html or encode of text to entities html :V",
+	detailed = "HTML entities decoding/encoding",
 	homepage = "https://TiagoDanin.github.io/htmlEntities-for-lua/",
 	maintainer = "Tiago Danin <TiagoDanin@outlook.com>",
 	license = "MIT"
