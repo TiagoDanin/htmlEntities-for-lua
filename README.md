@@ -27,7 +27,9 @@ Function                       | Info   |
 ------------------------------ |------- |
 htmlEntities                   | Return table with about module and version
 htmlEntities.decode(input)     | Decode html entities to text
+string:htmlDecode()            | Same as above
 htmlEntities.encode(input)     | Encode text to html entities (in ASCII) NOTE: Emoji is not supported here
+string:htmlEncode()            | Same as above
 htmlEntities.ASCII_HEX(input)  | Decode for ASCII HEX
 htmlEntities.ASCII_DEC(input)  | Decode for ASCII DEC
 
