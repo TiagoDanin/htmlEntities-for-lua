@@ -81,20 +81,27 @@ baseURL: https://tiagodanin.github.io
 
 
 <div class="uk-container">
-	<h1 id="htmlentities-for-lua-build-status-luarocks"><a href="#htmlentities-for-lua-build-status-luarocks">htmlEntities for Lua <a href="https://travis-ci.org/TiagoDanin/htmlEntities-for-lua"><img src="https://travis-ci.org/TiagoDanin/htmlEntities-for-lua.svg?branch=master" alt="Build Status"></a> <a href="http://luarocks.org/modules/tiagodanin/html-entities"><img src="https://img.shields.io/badge/Luarocks-html--entities-yellow.svg" alt="Luarocks"></a></a></h1>
+	<h1 id="htmlentities-for-lua"><a href="#htmlentities-for-lua">htmlEntities for Lua</a></h1>
+<p><a href="https://travis-ci.org/TiagoDanin/htmlEntities-for-lua"><img src="https://travis-ci.org/TiagoDanin/htmlEntities-for-lua.svg?branch=master" alt="Build Status"></a> <a href="http://luarocks.org/modules/tiagodanin/html-entities"><img src="https://img.shields.io/badge/Luarocks-html--entities-yellow.svg" alt="Luarocks"></a></p>
 <p>HTML entities decoding/encoding</p>
+<p>Written for Lua5.3 but working with lua5.x!</p>
+<h2 id="features"><a href="#features">Features</a></h2>
+<ul>
+<li>Fast!</li>
+<li>No dependencies!</li>
+<li>Easy to implement!</li>
+</ul>
 <h2 id="installation"><a href="#installation">Installation</a></h2>
-<p>Written for Lua5.3 but working with lua5.2 and 5.1</p>
-<p>Use the luarocks in your terminal</p>
-<p><code>$ luarocks install html-entities</code></p>
-<h2 id="using"><a href="#using">Using</a></h2>
-<h3 id="example"><a href="#example">Example</a></h3>
+<p>Module available through the <a href="https://luarocks.org/">LuaRocks</a>. It can be installed using the <code>luarocks</code> command line tools.</p>
+<pre><code class="hljs language-sh"><span class="hljs-comment"># LuaRocks</span>
+luarocks install html-entities</code></pre>
+<h2 id="example"><a href="#example">Example</a></h2>
 <pre><code class="hljs language-lua">htmlEntities = <span class="hljs-built_in">require</span>(<span class="hljs-string">'htmlEntities'</span>)
-<span class="hljs-built_in">print</span>(htmlEntities.name) <span class="hljs-comment">--htmlEntities-for-lua</span>
-<span class="hljs-built_in">print</span>(htmlEntities.encode(<span class="hljs-string">'Tiago Danin :)'</span>)) <span class="hljs-comment">--&#x26;#84;&#x26;#105;&#x26;#97;&#x26;#103;&#x26;#111;&#x26;#32;&#x26;#68;&#x26;#97;&#x26;#110;&#x26;#105;&#x26;#110;&#x26;#32;&#x26;#58;&#x26;#41;</span>
-<span class="hljs-built_in">print</span>(htmlEntities.decode(<span class="hljs-string">'&#x26;#84;&#x26;#105;&#x26;#97;&#x26;#103;&#x26;#111;&#x26;#32;&#x26;#68;&#x26;#97;&#x26;#110;&#x26;#105;&#x26;#110;&#x26;#32;&#x26;#58;&#x26;#41;'</span>)) <span class="hljs-comment">--Tiago Danin :)</span></code></pre>
-<h3 id="module"><a href="#module">Module</a></h3>
-<p>Function:</p>
+<span class="hljs-built_in">print</span>(htmlEntities.name) <span class="hljs-comment">-- htmlEntities-for-lua</span>
+<span class="hljs-built_in">print</span>(htmlEntities.encode(<span class="hljs-string">'Tiago Danin :)'</span>)) <span class="hljs-comment">-- &#x26;#84;&#x26;#105;&#x26;#97;&#x26;#103;&#x26;#111;&#x26;#32;&#x26;#68;&#x26;#97;&#x26;#110;&#x26;#105;&#x26;#110;&#x26;#32;&#x26;#58;&#x26;#41;</span>
+<span class="hljs-built_in">print</span>(htmlEntities.decode(<span class="hljs-string">'&#x26;#84;&#x26;#105;&#x26;#97;&#x26;#103;&#x26;#111;&#x26;#32;&#x26;#68;&#x26;#97;&#x26;#110;&#x26;#105;&#x26;#110;&#x26;#32;&#x26;#58;&#x26;#41;'</span>)) <span class="hljs-comment">-- Tiago Danin :)</span></code></pre>
+<h2 id="documentation"><a href="#documentation">Documentation</a></h2>
+<h3 id="api"><a href="#api">API</a></h3>
 <table>
 <thead>
 <tr>
@@ -105,11 +112,11 @@ baseURL: https://tiagodanin.github.io
 <tbody>
 <tr>
 <td>htmlEntities</td>
-<td>Return table with about module and version</td>
+<td>Return table with information about module</td>
 </tr>
 <tr>
 <td>htmlEntities.decode(input)</td>
-<td>Decode html entities to text</td>
+<td>Decode HTML entities</td>
 </tr>
 <tr>
 <td>string:htmlDecode()</td>
@@ -117,7 +124,7 @@ baseURL: https://tiagodanin.github.io
 </tr>
 <tr>
 <td>htmlEntities.encode(input)</td>
-<td>Encode text to html entities (in ASCII) NOTE: Emoji is not supported here</td>
+<td>Encode in HTML entities (in ASCII) NOTE: Emoji is not supported here!</td>
 </tr>
 <tr>
 <td>string:htmlEncode()</td>
@@ -125,15 +132,15 @@ baseURL: https://tiagodanin.github.io
 </tr>
 <tr>
 <td>htmlEntities.ASCII_HEX(input)</td>
-<td>Decode for ASCII HEX</td>
+<td>Decode ASCII HEX</td>
 </tr>
 <tr>
 <td>htmlEntities.ASCII_DEC(input)</td>
-<td>Decode for ASCII DEC</td>
+<td>Decode ASCII DEC</td>
 </tr>
 </tbody>
 </table>
-<p>Option:</p>
+<h3 id="module-options"><a href="#module-options">Module Options</a></h3>
 <table>
 <thead>
 <tr>
@@ -170,12 +177,16 @@ baseURL: https://tiagodanin.github.io
 </tr>
 </tbody>
 </table>
-<h2 id="pages"><a href="#pages">Pages</a></h2>
-<p>Stable versions in <a href="https://github.com/TiagoDanin/htmlEntities-for-lua/releases">Releases</a> or <a href="http://luarocks.org/modules/tiagodanin/html-entities">LuaRocks</a></p>
-<p>Suggestions and Support >> <a href="https://github.com/TiagoDanin/htmlEntities-for-lua/issues/new">New Issue</a></p>
-<p>WebSite >> <a href="https://TiagoDanin.github.io/htmlEntities-for-lua/">TiagoDanin.github.io/htmlEntities-for-lua</a></p>
+<h2 id="tests"><a href="#tests">Tests</a></h2>
+<p>To run the test suite:</p>
+<pre><code class="hljs language-sh"><span class="hljs-comment"># Lua</span>
+lua tests/cli.lua
+lua tests/test.lua
+lua tests/travis.lua</code></pre>
+<h2 id="contributors"><a href="#contributors">Contributors</a></h2>
+<p>Pull requests and stars are always welcome. For bugs and feature requests, please <a href="https://github.com/TiagoDanin/htmlEntities-for-lua/issues">create an issue</a>. <a href="https://github.com/TiagoDanin/htmlEntities-for-lua/graphs/contributors">List of all contributors</a>.</p>
 <h2 id="license"><a href="#license">License</a></h2>
-<p>MIT by Tiago Danin</p>
+<p><a href="LICENSE">MIT</a> © <a href="https://TiagoDanin.github.io">Tiago Danin</a></p>
 
 
 	<hr class="uk-margin-top-remove uk-divider-icon">
