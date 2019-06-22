@@ -61,7 +61,7 @@ To run the test suite:
 ```sh
 # Lua
 lua tests/cli.lua
-lua tests/test.lua
+# Or
 lua tests/travis.lua
 ```
 

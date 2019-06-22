@@ -27,6 +27,9 @@ function test.test_speed()
 	print('\n\nInit Time')
 	local time_init = io.popen('date +%S.%N'):read('*all')
 
+	print('SPECIAL CASE')
+	print('~>', htmlEntities.decode('a=1&b=2&c=3&amp;d=4'))
+
 	print('ASCII Decode [HEX 33-255 to DEC] to Char')
 	local char = {}
 	for i = 33, 255 do
