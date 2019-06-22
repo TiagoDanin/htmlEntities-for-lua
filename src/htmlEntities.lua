@@ -2351,7 +2351,7 @@ function htmlEntities.decode (input)
 		if error_msg_htmlEntities then error('htmlEntities[decode] >> ERROR: input is value nil') end
 		return false
 	end
-	local output = string.gsub(input, '&.-;', htmlEntities_table)
+	local output = string.gsub(input, '&[%w#]-;', htmlEntities_table)
 	if ASCII_htmlEntities then
 		output = string.gsub(output, '&#x([%w%d]*);', htmlEntities.ASCII_DEC)
 		output = string.gsub(output, '&#([%d]*);', htmlEntities.ASCII_HEX)
