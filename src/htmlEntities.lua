@@ -7,7 +7,7 @@ local global_module_name_htmlEntities = 'htmlEntities'
 
 local htmlEntities = {
 	about = 'HTML entities decoding/encoding',
-	version = '1.2.0',
+	version = '1.3.1',
 	name = 'htmlEntities-for-lua',
 	author = 'Tiago Danin',
 	license = 'MIT',
