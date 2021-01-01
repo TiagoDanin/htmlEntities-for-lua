@@ -2353,8 +2353,8 @@ function htmlEntities.decode (input)
 	end
 	local output = string.gsub(input, '&[%w#]-;', htmlEntities_table)
 	if ASCII_htmlEntities then
-		output = string.gsub(output, '&#x([%w%d]*);', htmlEntities.ASCII_DEC)
-		output = string.gsub(output, '&#([%d]*);', htmlEntities.ASCII_HEX)
+		output = string.gsub(output, '&#x([%w%d]+);', htmlEntities.ASCII_DEC)
+		output = string.gsub(output, '&#([%d]+);', htmlEntities.ASCII_HEX)
 	end
 
 	if debug_htmlEntities then print('>>'..output) end
